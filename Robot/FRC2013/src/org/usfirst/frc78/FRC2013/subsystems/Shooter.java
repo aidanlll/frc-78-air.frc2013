@@ -19,7 +19,7 @@ import org.usfirst.frc78.FRC2013.Robot;
  */
 public class Shooter extends Subsystem {
     private final static double FRONT_SHOOT_SPEED = 1.0;    // TODO
-    private final static double REAR_SHOOT_SPEED = 0.75;    // TODO
+    private final static double REAR_SHOOT_SPEED = 0.5;    // TODO
     private final static double TRIGGER_FIRE_POS = 180.0;    // TODO
     private final static double TRIGGER_COCK_POS = 0.0;    // TODO
     private final static double TILT_LOAD_POS = 0.0;    // TODO
@@ -56,14 +56,18 @@ public class Shooter extends Subsystem {
         return false;
     }
     public void stopShooterWheels() {
-        frontPID.reset();
-        rearPID.reset();
+//        frontPID.reset();
+//        rearPID.reset();
+        frontMotor.set(0.0);
+        rearMotor.set(0.0);
     }
     public void startShooterWheels() {
-        frontPID.enable();
-        rearPID.enable();
-        frontPID.setSetpoint(FRONT_SHOOT_SPEED);
-        rearPID.setSetpoint(REAR_SHOOT_SPEED);
+//        frontPID.enable();
+//        rearPID.enable();
+//        frontPID.setSetpoint(FRONT_SHOOT_SPEED);
+//        rearPID.setSetpoint(REAR_SHOOT_SPEED);
+        frontMotor.set(-1.0);
+        rearMotor.set(-0.5);
     }
     // tilt
     public void stopTiltMotor() {
@@ -94,5 +98,11 @@ public class Shooter extends Subsystem {
     }
     public void moveTrigToCockPos() {
         triggerPID.setSetpoint(TRIGGER_COCK_POS);
+    }
+    public void stopTriggerMotor() {
+        triggerMotor.set(0.0);
+    }
+    public void moveTriggerMotor() {
+        triggerMotor.set(1.0);
     }
 }
