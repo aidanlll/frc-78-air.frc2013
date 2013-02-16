@@ -35,11 +35,11 @@ public class ChamberOneFrisbee extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         addSequential(new StackUpperGateClose());
-        addSequential(new DoNothing(0.25));
+        addSequential(new DoNothing(0.5));
         addSequential(new StackLowerGateOpen());
-        addSequential(new DoNothing(0.25));
+        addSequential(new DoNothing(0.5));
         addSequential(new StackLowerGateClose());
-        addSequential(new DoNothing(0.25));
+        addSequential(new DoNothing(0.5));
         addSequential(new StackUpperGateOpen());
     }
 }

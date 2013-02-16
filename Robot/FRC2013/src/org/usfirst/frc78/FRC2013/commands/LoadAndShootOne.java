@@ -36,9 +36,9 @@ public class LoadAndShootOne extends CommandGroup {
         // arm.
         
         addParallel(new ShooterStartWheels());
-//        addSequential(new ChamberOneFrisbee());
+        addSequential(new ChamberOneFrisbee());
         addSequential(new WaitForShooterAtSpeed());
-        addSequential(new ShootOneFrisbee());
+        addSequential(new PullTrigger());
         addSequential(new ShooterStopWheels());
     }
 }

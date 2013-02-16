@@ -13,8 +13,8 @@ import org.usfirst.frc78.FRC2013.Robot;
 /**
  *
  */
-public class  RunTrigger extends Command {
-    public RunTrigger() {
+public class  PullTrigger extends Command {
+    public PullTrigger() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -23,6 +23,7 @@ public class  RunTrigger extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        setTimeout(0.5);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -30,7 +31,7 @@ public class  RunTrigger extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.oi.getTiggerMoveSw();
+        return isTimedOut() && Robot.shooter.isTriggerAtStop();
     }
     // Called once after isFinished returns true
     protected void end() {
