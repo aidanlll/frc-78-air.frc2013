@@ -89,20 +89,12 @@ public class Shooter extends Subsystem {
     }
     // trigger
     public boolean isTriggerAtStop() {
-        return !triggerStop.get();
+        return triggerStop.get();
     }
     public void stopTriggerMotor() {
         triggerMotor.set(0.0);
     }
     public void moveTriggerMotor() {
-        triggerMotor.set(-1.0);
+        triggerMotor.set(1.0);
     }
-/*
-    public void moveTrigToFirePos() {
-        triggerPID.setSetpoint(TRIGGER_FIRE_POS);
-    }
-    public void moveTrigToCockPos() {
-        triggerPID.setSetpoint(TRIGGER_COCK_POS);
-    }
-*/
 }

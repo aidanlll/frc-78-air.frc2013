@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class ChamberOneFrisbee extends CommandGroup {
+public class StackChamberFrisbee extends CommandGroup {
     
-    public  ChamberOneFrisbee() {
+    public  StackChamberFrisbee() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -35,11 +35,11 @@ public class ChamberOneFrisbee extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         addSequential(new StackUpperGateClose());
-        addSequential(new DoNothing(0.5));
+        addSequential(new AutoDoNothing(0.25));
         addSequential(new StackLowerGateOpen());
-        addSequential(new DoNothing(0.5));
+        addSequential(new AutoDoNothing(0.25));
         addSequential(new StackLowerGateClose());
-        addSequential(new DoNothing(0.5));
+        addSequential(new AutoDoNothing(0.25));
         addSequential(new StackUpperGateOpen());
     }
 }

@@ -36,18 +36,18 @@ public class LoadAndShootFour extends CommandGroup {
         // arm.
 
         addParallel(new ShooterStartWheels());
-        addSequential(new ChamberOneFrisbee());
-        addSequential(new WaitForShooterAtSpeed());
-        addSequential(new PullTrigger());
-        addSequential(new ChamberOneFrisbee());
-        addSequential(new WaitForShooterAtSpeed());
-        addSequential(new PullTrigger());
-        addSequential(new ChamberOneFrisbee());
-        addSequential(new WaitForShooterAtSpeed());
-        addSequential(new PullTrigger());
-        addSequential(new ChamberOneFrisbee());
-        addSequential(new WaitForShooterAtSpeed());
-        addSequential(new PullTrigger());
+        addSequential(new StackChamberFrisbee());
+//        addSequential(new ShooterWaitForSpeed());
+        addSequential(new ShooterPullTrigger());
+        addSequential(new StackChamberFrisbee());
+//        addSequential(new ShooterWaitForSpeed());
+        addSequential(new ShooterPullTrigger());
+        addSequential(new StackChamberFrisbee());
+//        addSequential(new ShooterWaitForSpeed());
+        addSequential(new ShooterPullTrigger());
+        addSequential(new StackChamberFrisbee());
+//        addSequential(new ShooterWaitForSpeed());
+        addSequential(new ShooterPullTrigger());
         addSequential(new ShooterStopWheels());
     }
 }
