@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LoadAndShootFour extends CommandGroup {
+public class AutoRear2ptCorner extends CommandGroup {
     
-    public  LoadAndShootFour() {
+    public  AutoRear2ptCorner() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,20 +34,8 @@ public class LoadAndShootFour extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-
-        addParallel(new ShooterStartWheels());
-        addSequential(new StackChamberFrisbee());
-        addSequential(new ShooterWaitForSpeed());
-        addSequential(new ShooterPullTrigger());
-        addSequential(new StackChamberFrisbee());
-        addSequential(new ShooterWaitForSpeed());
-        addSequential(new ShooterPullTrigger());
-        addSequential(new StackChamberFrisbee());
-        addSequential(new ShooterWaitForSpeed());
-        addSequential(new ShooterPullTrigger());
-        addSequential(new StackChamberFrisbee());
-        addSequential(new ShooterWaitForSpeed());
-        addSequential(new ShooterPullTrigger());
-        addSequential(new ShooterStopWheels());
+        addSequential(new TiltRear2ptCorner());
+        addSequential(new AutoDoNothing(2.0));
+        addSequential(new LoadAndShootFour());
     }
 }
