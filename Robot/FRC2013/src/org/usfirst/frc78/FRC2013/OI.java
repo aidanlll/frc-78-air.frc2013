@@ -123,6 +123,9 @@ public class OI {
     public double getShooterTiltSpeed() {
         return -shooterJoystick.getY();
     }
+    public double getShooterWheelSpeed() {
+        return -shooterJoystick.getThrottle();
+    }
     public boolean getShooterMoveSw() {
         return !shooterOn.get();
     }
