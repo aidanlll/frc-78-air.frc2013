@@ -62,6 +62,11 @@ public class Tilt extends Subsystem {
     public void setGoal(double goal) {
         m_drGoal = goal;
     }
+    public void stop() {
+        motor.set(0.0);
+        getPos();
+        setGoal(m_drPos);
+    }
     public void move() {
         double pos = getPos();
         double goal = m_drGoal;
