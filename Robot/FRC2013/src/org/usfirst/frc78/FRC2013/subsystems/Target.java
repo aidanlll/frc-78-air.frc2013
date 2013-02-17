@@ -32,8 +32,8 @@ public class Target extends Subsystem {
     public Target() {
         spotLight.set(Relay.Value.kOff);
     }
-    public void SpotLight(boolean on) {
-        if(true == on) {
+    public void SpotLight(boolean bState) {
+        if(true == bState) {
             spotLight.set(Relay.Value.kForward);
         } else {
             spotLight.set(Relay.Value.kOff);
