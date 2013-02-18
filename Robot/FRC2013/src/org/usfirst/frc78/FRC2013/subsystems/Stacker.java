@@ -39,33 +39,21 @@ public class Stacker extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void openUpperGate() {
-//        upperGate1.set(Robot.stackUpperGateOpen);
-//        upperGate2.set(Robot.stackUpperGateOpen);
-//        upperGate3.set(Robot.stackUpperGateOpen);
         upperGate1.set(UPPER1_GATE_OPEN);
         upperGate2.set(ALL_GATE_OPEN);
         upperGate3.set(ALL_GATE_OPEN);
     }
     public void closeUpperGate() {
-//        upperGate1.set(Robot.stackUpperGateClose);
-//        upperGate2.set(Robot.stackUpperGateClose);
-//        upperGate3.set(Robot.stackUpperGateClose);
         upperGate1.set(UPPER1_GATE_CLOSE);
         upperGate2.set(ALL_GATE_CLOSE);
         upperGate3.set(ALL_GATE_CLOSE);
     }
     public void openLowerGate() {
-//        lowerGate1.set(Robot.stackLowerGateOpen);
-//        lowerGate2.set(Robot.stackLowerGateOpen);
-//        lowerGate3.set(Robot.stackLowerGateOpen);
         lowerGate1.set(ALL_GATE_OPEN);
         lowerGate2.set(ALL_GATE_OPEN);
         lowerGate3.set(ALL_GATE_OPEN);
     }
     public void closeLowerGate() {
-//        lowerGate1.set(Robot.stackLowerGateClose);
-//        lowerGate2.set(Robot.stackLowerGateClose);
-//        lowerGate3.set(Robot.stackLowerGateClose);
         lowerGate1.set(ALL_GATE_CLOSE);
         lowerGate2.set(ALL_GATE_CLOSE);
         lowerGate3.set(ALL_GATE_CLOSE);
