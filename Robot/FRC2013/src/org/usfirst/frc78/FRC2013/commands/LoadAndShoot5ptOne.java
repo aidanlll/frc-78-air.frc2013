@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Auto5ptShoot extends CommandGroup {
+public class LoadAndShoot5ptOne extends CommandGroup {
     
-    public  Auto5ptShoot() {
+    public  LoadAndShoot5ptOne() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,9 +34,10 @@ public class Auto5ptShoot extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addParallel(new Tilt5ptMove());
-        addSequential(new ChassisMove(-2.0));
-        addSequential(new AutoDoNothing(2.0));
-        addSequential(new Shoot5ptFour());
+        addParallel(new ShooterStart5ptWheels());
+        addSequential(new StackChamberFrisbee());
+        addSequential(new ShooterWaitForSpeed());
+        addSequential(new ShooterPullTrigger());
+        addSequential(new ShooterStopWheels());
     }
 }

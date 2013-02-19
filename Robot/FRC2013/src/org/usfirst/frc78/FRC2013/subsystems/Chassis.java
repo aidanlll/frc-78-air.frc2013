@@ -122,10 +122,10 @@ public class Chassis extends Subsystem {
         SmartDashboard.putNumber("ChassisAngle", getAngle());
         double d_error = m_drDistance - getDistance();
         double a_error = m_drAngle - getAngle();
-//        if (MOVE_DONE >= Math.abs(d_error) &&
-//                ANGLE_DONE >= Math.abs(a_error)) {
 //        if (ANGLE_DONE >= Math.abs(a_error)) {
-        if (MOVE_DONE >= Math.abs(d_error)) {
+//        if (MOVE_DONE >= Math.abs(d_error)) {
+        if (MOVE_DONE >= Math.abs(d_error) &&
+                ANGLE_DONE >= Math.abs(a_error)) {
             return true;
         }
         return false;
