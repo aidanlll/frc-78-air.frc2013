@@ -76,8 +76,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Rear 2pt Corner", new AutoRear2ptCorner());
         SmartDashboard.putData("Autonomous Chooser", autoChooser);
         // preset servos to prevent frisbee jams
-        stacker.closeLowerGate();
-        stacker.openUpperGate();
+        stacker.init();
     }
     public void autonomousInit() {
         // schedule the autonomous command (example)
@@ -86,8 +85,7 @@ public class Robot extends IterativeRobot {
             autonomousCommand.start();
         }
         // preset servos to prevent frisbee jams
-        stacker.closeLowerGate();
-        stacker.openUpperGate();
+        stacker.init();
     }
     /**
      * This function is called periodically during autonomous
@@ -104,8 +102,7 @@ public class Robot extends IterativeRobot {
             autonomousCommand.cancel();
         }
         // preset servos to prevent frisbee jams
-        stacker.closeLowerGate();
-        stacker.openUpperGate();
+        stacker.init();
     }
     /**
      * This function is called periodically during operator control

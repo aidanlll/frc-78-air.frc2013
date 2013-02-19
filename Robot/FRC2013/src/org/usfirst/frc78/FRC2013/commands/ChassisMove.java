@@ -27,6 +27,7 @@ public class  ChassisMove extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         Robot.chassis.init();
+        Robot.chassis.setDistance(m_drDistance);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {

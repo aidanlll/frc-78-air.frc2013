@@ -58,4 +58,8 @@ public class Stacker extends Subsystem {
         lowerGate2.set(ALL_GATE_CLOSE);
         lowerGate3.set(ALL_GATE_CLOSE);
     }
+    public void init() {
+        closeLowerGate();
+        openUpperGate();
+    }
 }
