@@ -153,6 +153,7 @@ public class Chassis extends Subsystem {
         } else {
             d_speed = MOVE_KP * d_error;
         }
+/*
         // if braking needed (ugly but may work)
         if (BRAKE_COUNT_MAX > m_iBrakeCounter) {
             if (STOP_DIST > Math.abs(d_error)) {
@@ -164,6 +165,7 @@ public class Chassis extends Subsystem {
             d_speed = 0.0;
             a_speed = 0.0;
         }
+*/
         arcadeDrive(d_speed, a_speed);
     }
 }

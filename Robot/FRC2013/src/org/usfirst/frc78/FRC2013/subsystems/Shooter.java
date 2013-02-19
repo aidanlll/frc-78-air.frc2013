@@ -46,16 +46,13 @@ public class Shooter extends Subsystem {
         rearMotor.set(rear);
     }
     public void stopShooterWheels() {
-//        frontPID.reset();
-//        rearPID.reset();
         move(0.0, 0.0);
     }
     public void startShooterWheels() {
-//        frontPID.enable();
-//        rearPID.enable();
-//       frontPID.setSetpoint(FRONT_SHOOT_SPEED);
-//       rearPID.setSetpoint(REAR_SHOOT_SPEED);
         move(-1.0, -1.0);
+    }
+    public void start5ptWheels() {
+        move(-0.57, -0.57);
     }
     public void JoystickShooter() {
         double speed = Robot.oi.getShooterWheelSpeed();
