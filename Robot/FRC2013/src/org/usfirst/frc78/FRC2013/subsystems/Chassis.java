@@ -37,6 +37,7 @@ public class Chassis extends Subsystem {
     private final double ANGLE_DONE = 2.0;
     // private members
     private boolean m_bFlipDirection = false;
+    private boolean m_bSlowSpeed = false;
     private double m_drDistance = 0.0;
     private double m_drAngle = 0.0;
     private int m_iBrakeCounter = 0;
@@ -65,8 +66,11 @@ public class Chassis extends Subsystem {
         SmartDashboard.putNumber("ChassisMoveKP", m_drMoveKP);
         SmartDashboard.putNumber("ChassisTurnKP", m_drTurnKP);
     }
-    public void flipDriveDirection() {
-	m_bFlipDirection = !m_bFlipDirection;
+    public void setFastSpeed() {
+        m_bSlowSpeed = false;
+    }
+    public void setSlowSpeed() {
+        m_bSlowSpeed = true;
     }
     public void init() {
         resetDistance();
@@ -86,11 +90,6 @@ public class Chassis extends Subsystem {
     public void joystickDrive() {
         double lSpeed = Robot.oi.getDriverLeftSpeed();
         double rSpeed = Robot.oi.getDriverRightSpeed();
-        if (m_bFlipDirection) {
-            double temp = lSpeed;
-            lSpeed = -rSpeed;
-            rSpeed = -temp;
-        }
 //        if (Robot.oi.isDriverGoSlow()) {
 //            lSpeed *= 0.4;
 //            rSpeed *= 0.4;
