@@ -34,6 +34,7 @@ public class StackChamberFrisbee extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        this.setInterruptible(false);
         addSequential(new StackUpperGateClose());
         addSequential(new AutoDoNothing(0.25));
         addSequential(new StackLowerGateOpen());

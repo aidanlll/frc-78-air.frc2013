@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AutoRear3ptCenter extends CommandGroup {
+public class Shoot1 extends CommandGroup {
     
-    public  AutoRear3ptCenter() {
+    public  Shoot1() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,8 +34,9 @@ public class AutoRear3ptCenter extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addSequential(new TiltRear3ptCenter());
-        addSequential(new AutoDoNothing(2.0));
-        addSequential(new LoadAndShootFour());
+        addSequential(new ShooterStartWheels());
+        addSequential(new ShooterWaitForSpeed());
+        addSequential(new ShooterPullTrigger());
+        addSequential(new ShooterStopWheels());
     }
 }
