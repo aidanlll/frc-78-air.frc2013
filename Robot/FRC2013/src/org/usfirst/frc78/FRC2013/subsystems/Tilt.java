@@ -88,6 +88,17 @@ public class Tilt extends PIDSubsystem {
     public void setSlowSpeed() {
         m_bSlowSpeed = true;
     }
+    /**
+     * Each time called, will read the joystick and move the tilt arm 
+     * motor directly.  It first disables any PID pending.
+     * It uses the shooter joystick and implements a pitch command where
+     * forward motion of the stick is nose down and rearwards motion of 
+     * the stick is nose up. Slow speed is supported if user selected.
+     *
+     * @param  n/a
+     * @return none
+     * @see    n/a
+     */
     public void JoystickDrive() {
         disable();
         double speed = -Robot.oi.getShooterTiltSpeed();
