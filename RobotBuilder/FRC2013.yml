@@ -535,6 +535,55 @@ Children:
           value: '1'
         Reverse Direction: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Reverse Direction, validators: null, value: true}
+    - Name: Pot
+      Base: Potentiometer
+      Children: []
+      Properties:
+        Input Module (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['1', '2']
+          default: '1'
+          name: Input Module (Analog)
+          validators: [AnalogInput]
+          value: '1'
+        Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['1', '2', '3', '4', '5', '6', '7', '8']
+          default: '1'
+          name: Input Channel (Analog)
+          validators: [AnalogInput]
+          value: '2'
+    - Name: UpperLimit
+      Base: Digital Input
+      Children: []
+      Properties:
+        Input Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id020 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14']
+          default: '1'
+          name: Input Channel (Digital)
+          validators: &id021 [DigitalChannel]
+          value: '1'
+        Input Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id022 ['1', '2']
+          default: '1'
+          name: Input Module (Digital)
+          validators: &id023 [DigitalChannel]
+          value: '2'
+    - Name: LowerLimit
+      Base: Digital Input
+      Children: []
+      Properties:
+        Input Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id020
+          default: '1'
+          name: Input Channel (Digital)
+          validators: *id021
+          value: '3'
+        Input Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id022
+          default: '1'
+          name: Input Module (Digital)
+          validators: *id023
+          value: '2'
     Properties:
       D: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: D, validators: null,
         value: 0.0}
@@ -549,13 +598,13 @@ Children:
       F: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: F, validators: null,
         value: 0.0}
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
-        validators: null, value: 1.0}
+        validators: null, value: 2.0}
       Continuous: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Continuous, validators: null, value: false}
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: TiltWithJoystick}
       Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
-        validators: null, value: 1.0}
+        validators: null, value: 0.25}
       Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Input, validators: null, value: false}
       Output: !!robotbuilder.data.properties.ChildSelectionProperty
@@ -567,13 +616,13 @@ Children:
       Minimum Input: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: Minimum Input,
         validators: null, value: -5.0}
       Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
-        name: Minimum Output, validators: null, value: -1.0}
+        name: Minimum Output, validators: null, value: -0.25}
       I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
-        value: 0.002}
+        value: 0.0}
       P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
         value: 0.045}
       Maximum Input: !!robotbuilder.data.properties.DoubleProperty {default: 5, name: Maximum Input,
-        validators: null, value: 55.0}
+        validators: null, value: 45.0}
   Properties: {}
 - Name: Operator Interface
   Base: OI
@@ -589,10 +638,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: &id020 [TypeDropdownSelected]
+          validators: &id024 [TypeDropdownSelected]
           value: ShooterStartWheels
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id021 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+          choices: &id025 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
             '12']
           default: '1'
           name: Button
@@ -601,7 +650,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: DriverJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id022 [whileHeld, whenPressed, whenReleased]
+          choices: &id026 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
           name: When to Run
           validators: null
@@ -614,10 +663,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: ShooterStopWheels
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -625,7 +674,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: DriverJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -638,10 +687,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: StackChamberFrisbee
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -649,7 +698,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: DriverJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -662,10 +711,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: ShooterPullTrigger
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -673,7 +722,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: DriverJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -686,10 +735,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TiltMoveToBalance
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -697,17 +746,17 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: DriverJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
           value: whileHeld
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: &id023 ['1', '2', '3', '4']
+        choices: &id027 ['1', '2', '3', '4']
         default: 1
         name: Number
-        validators: &id024 [Joystick]
+        validators: &id028 [Joystick]
         value: '1'
   - Name: ShooterJoystick
     Base: Joystick
@@ -720,10 +769,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TiltMoveToLoad
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -731,7 +780,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -744,10 +793,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TiltFlipSpeed
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -755,7 +804,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -768,10 +817,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TargetSpotOn
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -779,7 +828,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -792,10 +841,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TargetSpotOff
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -803,7 +852,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -816,10 +865,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: LoadAndShoot5ptOne
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -827,7 +876,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -840,10 +889,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TiltFront2ptCorner
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -851,7 +900,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -864,10 +913,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: TiltFront3ptCorner
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -875,7 +924,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -888,10 +937,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: Tilt2ptWall
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -899,7 +948,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -912,10 +961,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: Tilt3ptWall
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -923,7 +972,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -936,10 +985,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: LoadAndShootOne
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -947,7 +996,7 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
@@ -960,10 +1009,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: LoadAndShootFour
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -971,35 +1020,11 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
           value: whenPressed
-    - Name: Tilt5ptAngleBut
-      Base: Joystick Button
-      Children: []
-      Properties:
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id020
-          value: Tilt5ptMove
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
-          default: '1'
-          name: Button
-          validators: null
-          value: '12'
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: ShooterJoystick}
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whileHeld
     - Name: NoServoShoot1But
       Base: Joystick Button
       Children: []
@@ -1008,10 +1033,10 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: *id020
+          validators: *id024
           value: Shoot1
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id021
+          choices: *id025
           default: '1'
           name: Button
           validators: null
@@ -1019,17 +1044,41 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: ShooterJoystick}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id022
+          choices: *id026
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whileHeld
+    - Name: Tilt5ptAngleBut
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id024
+          value: Tilt5ptMove
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id025
+          default: '1'
+          name: Button
+          validators: null
+          value: '12'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: ShooterJoystick}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id026
           default: whileHeld
           name: When to Run
           validators: null
           value: whileHeld
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id023
+        choices: *id027
         default: 1
         name: Number
-        validators: *id024
+        validators: *id028
         value: '2'
   Properties: {}
 - Name: Commands
@@ -1263,130 +1312,84 @@ Children:
         name: Requires, type: Subsystem, validators: null, value: Target}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
-  - Name: TiltMoveToStart
-    Base: Setpoint Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: &id025 [TypeDropdownSelected]
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 0.0}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
   - Name: TiltMoveToLoad
-    Base: Setpoint Command
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 0.0}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
-  - Name: TiltFront2ptCorner
-    Base: Setpoint Command
+  - Name: TiltMoveToStart
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 10.65}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: TiltRear2ptCorner
-    Base: Setpoint Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 4.29}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: Tilt2ptWall
-    Base: Setpoint Command
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 42.8}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
-  - Name: TiltFront3ptCorner
-    Base: Setpoint Command
+  - Name: TiltFront2ptCorner
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 12.78}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
-  - Name: TiltRear3ptCorner
-    Base: Setpoint Command
+  - Name: TiltRear2ptCorner
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 6.45}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: Tilt3ptWall
-    Base: Setpoint Command
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 53.4}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: TiltFront3ptCorner
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: TiltRear3ptCorner
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: Tilt5ptMove
-    Base: Setpoint Command
+    Base: Command
     Children: []
     Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 30.051}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+  - Name: TiltMoveToBalance
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: TiltFlipSpeed
@@ -1395,20 +1398,6 @@ Children:
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
-      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: false}
-  - Name: TiltMoveToBalance
-    Base: Setpoint Command
-    Children: []
-    Properties:
-      Requires: !!robotbuilder.data.properties.ComponentSelectionProperty
-        componentName: PID Subsystem
-        default: None
-        name: Requires
-        validators: *id025
-        value: Tilt
-      Setpoint: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Setpoint,
-        validators: null, value: 46.388}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
   - Name: TiltResetEncoder
