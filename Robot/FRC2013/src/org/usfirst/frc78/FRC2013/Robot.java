@@ -72,8 +72,11 @@ public class Robot extends IterativeRobot {
 //        autoChooser.addObject("Front 3pt Center", new AutoFront3ptCenter());
         autoChooser.addObject("Front 3pt Corner", new AutoFront3ptCorner());
         autoChooser.addObject("Front 2pt Corner", new AutoFront2ptCorner());
-        autoChooser.addObject("Rear 3pt Center", new AutoRear3ptCenter());
-        autoChooser.addObject("Rear 2pt Corner", new AutoRear2ptCorner());
+       // autoChooser.addObject("Rear 3pt Center", new AutoRear3ptCenter());   //old non-fully working auto
+       // autoChooser.addObject("Rear 2pt Corner", new AutoRear2ptCorner());   //old non-working auto
+        autoChooser.addObject("Rear2pt Corner", new AutoNewRear2());
+        autoChooser.addObject("Rear3pt Corner", new AutoNewRear3());
+        autoChooser.addObject("Back Pyramid", new LoadAndShootFour());
         SmartDashboard.putData("Autonomous Chooser", autoChooser);
         // preset servos to prevent frisbee jams
         stacker.init();

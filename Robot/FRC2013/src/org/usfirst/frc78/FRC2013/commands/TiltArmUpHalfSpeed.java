@@ -9,13 +9,12 @@
 // it from being updated in th future.
 package org.usfirst.frc78.FRC2013.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc78.FRC2013.Robot;
 /**
  *
  */
-public class  Tilt2ptWall extends Command {
-    public Tilt2ptWall() {
+public class  TiltArmUpHalfSpeed extends Command {
+    public TiltArmUpHalfSpeed() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -25,24 +24,22 @@ public class  Tilt2ptWall extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.tilt.setTilt2ptWall();
-        Robot.tilt.enable();
+        Robot.tilt.moveArmUpHalfSpeed();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        SmartDashboard.putBoolean("On Target", Robot.tilt.onTarget());
-        return Robot.tilt.onTarget();
+        return isTimedOut();
     }
     // Called once after isFinished returns true
     protected void end() {
-        Robot.tilt.disablePID();
+        Robot.tilt.stopArm();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        end();
     }
 }

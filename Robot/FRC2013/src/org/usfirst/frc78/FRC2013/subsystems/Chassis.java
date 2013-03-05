@@ -82,6 +82,7 @@ public class Chassis extends Subsystem {
         m_drDistance = 0.0;
         m_drAngle = 0.0;
         init();
+        drive.tankDrive(0, 0);
     }
     void tankDrive(double left, double right) {
         drive.tankDrive(left, right, SQUARE_INPUT_TRUE);
@@ -166,5 +167,14 @@ public class Chassis extends Subsystem {
         }
 */
         arcadeDrive(d_speed, a_speed);
+    }
+    public void moveForwardsFullSpeed(){
+        Robot.chassis.drive.tankDrive(1.0, 1.0);
+    }
+    public void moveForwardsHalfSpeed(){
+        Robot.chassis.drive.tankDrive(0.6, 0.6);
+    }
+    public void moveBackwardsHalfSpeed(){
+        Robot.chassis.tankDrive(-0.6, -0.6);
     }
 }

@@ -14,8 +14,8 @@ import org.usfirst.frc78.FRC2013.Robot;
 /**
  *
  */
-public class  Tilt2ptWall extends Command {
-    public Tilt2ptWall() {
+public class  TiltMoveToPreBalance extends Command {
+    public TiltMoveToPreBalance() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -25,7 +25,7 @@ public class  Tilt2ptWall extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.tilt.setTilt2ptWall();
+        Robot.tilt.setTiltMoveToPreBalance();
         Robot.tilt.enable();
     }
     // Called repeatedly when this Command is scheduled to run
@@ -38,7 +38,7 @@ public class  Tilt2ptWall extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
-        Robot.tilt.disablePID();
+         Robot.tilt.disablePID();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

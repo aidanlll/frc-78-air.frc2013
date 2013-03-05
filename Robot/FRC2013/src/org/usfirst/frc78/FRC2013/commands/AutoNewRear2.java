@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class StackInitServos extends CommandGroup {
+public class AutoNewRear2 extends CommandGroup {
     
-    public  StackInitServos() {
+    public  AutoNewRear2() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -34,8 +34,9 @@ public class StackInitServos extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        this.setInterruptible(false);
-        addSequential(new StackLowerGateClose());
-        addSequential(new StackUpperGateOpen());
+        addSequential(new TiltArmUpHalfSpeed(), .2);
+        addSequential(new TiltRear2ptCorner());
+        addSequential(new AutoDoNothing(0.5));
+        addSequential(new LoadAndShootFour());
     }
 }

@@ -110,7 +110,7 @@ public class RobotMap {
         stackerUpperGate3 = new Servo(2, 6);
 	LiveWindow.addActuator("Stacker", "UpperGate3", stackerUpperGate3);
         
-        targetSpotLight = new Relay(2, 1);
+        targetSpotLight = new Relay(2, 2);
 	LiveWindow.addActuator("Target", "SpotLight", targetSpotLight);
         
         tiltMotor = new Victor(2, 9);

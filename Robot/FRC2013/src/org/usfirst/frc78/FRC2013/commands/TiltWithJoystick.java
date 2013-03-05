@@ -9,6 +9,7 @@
 // it from being updated in th future.
 package org.usfirst.frc78.FRC2013.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc78.FRC2013.Robot;
 /**
  *
@@ -25,6 +26,7 @@ public class  TiltWithJoystick extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
 //        Robot.tilt.disablePID();
+         SmartDashboard.putBoolean("On Target", false);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
